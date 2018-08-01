@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  </head>
+  <body>
+      <div class="fc_content">
+        <div class="faux_composant_left">
+        </div>
+        <div class="faux_composant_right">
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="menu_pc"><p><a href="index.html">La géode</a>: <a href="la_formation.html">La formation</a>, <a href="les_composants.html">Les composants</a>, <a href="l_extraction.html">L'extraction</a>, <a href="les_lieux.html">Les lieux</a>, <a href="index.html"><span class="strikeout">Les faux composants</span></a></p></div>
+        <div class="menu_mobile"><p><a href="index.html">La géode</a>: <span class="mobile_right"><a href="la_formation.html">1</a>, <a href="les_composants.html">2</a>, <a href="l_extraction.html">3</a>, <a href="les_lieux.html">4</a>, <a href="index.html"><span class="strikeout">5</span></a></span></p></div>
+      </footer>
+      <script>
+      $(document).ready(function() {
+
+        var effects = [ "overlay", "darken", "color-burn", "hard-light", "saturation", "color", "luminosity" ];
+        var colorsLuminosity = [ "#f4f9f4", "#6900ff", "#74dac6", "#92e6e6", "#ffd3ad", "#ff5f5f", "#58d5d3", "#45eba5", "#f62a66" ];
+        var colorsColorBurn = ["#f4f9f4", "#ffd700", "#6900ff", "#93deff", "#92e6e6", "#a0f6d2", "#c4ffdd", "#fef4a9"];
+        var colorsSaturation = ["#74dac6", "#ff5f5f", "#58d5d3", "#2bcdc1"];
+        var colorsHardLight = ["#ffd3ad", "#58d5d3"];
+
+        function getColor(effect)
+        {
+          if (effect == "luminosity")
+          {
+            var rand = Math.floor((Math.random() * colorsLuminosity.length));
+            return colorsLuminosity[rand];
+          }
+          else if (effect == "color-burn")
+          {
+            var rand = Math.floor((Math.random() * colorsColorBurn.length));
+            return colorsColorBurn[rand];
+          }
+          else if (effect == "darken")
+          {
+            return "#ffd700";
+          }
+          else if (effect == "overlay")
+          {
+            return "#93deff";
+          }
+          else if (effect == "saturation")
+          {
+            var rand = Math.floor((Math.random() * colorsSaturation.length));
+            return colorsSaturation[rand];
+          }
+          else if (effect == "hard-light")
+          {
+            var rand = Math.floor((Math.random() * colorsHardLight.length));
+            return colorsHardLight[rand];
+          }
+          else if (effect == "color")
+          {
+            return "#ff5f5f";
+          }
+        }
+
+        $( ".faux_composant_left" ).click(
+        function() {
+            var myRandEffect = Math.floor((Math.random() * effects.length));
+            var effect = effects[myRandEffect];
+            $(".faux_composant_left").css({"background-color": getColor(effect) });
+            $(".faux_composant_left").css({"background-blend-mode": effect });
+        });
+
+        $( ".faux_composant_right" ).click(
+        function() {
+            var myRandEffect = Math.floor((Math.random() * effects.length));
+            var effect = effects[myRandEffect];
+            $(".faux_composant_right").css({"background-color": getColor(effect) });
+            $(".faux_composant_right").css({"background-blend-mode": effect });
+        });
+    });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,541 @@
+@font-face {
+    font-family: Suisseintl-Suisselight;
+    src: url(../font/Suisseintl-Suisselight.ttf);
+}
+
+@font-face {
+    font-family: Suisseintl-Suisseregular;
+    src: url(../font/Suisseintl-Suisseregular.ttf);
+}
+
+html {
+  height: 100vh;
+
+}
+
+body {
+  height: 98vh;
+  margin: 0px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+p, li {
+  font-family: Suisseintl-Suisseregular;
+  font-size: 19px;
+}
+
+li {
+  line-height: 1em;
+  height: auto;
+}
+
+.contenu p {
+  padding-bottom: 3vw;
+}
+
+.formation_content p,
+.extraction_content li,
+.extraction_content p{
+  margin : 16px 30px 0px 20px;
+}
+
+footer p {
+  margin-top: 10px;
+  margin-left: 2vw;
+}
+
+img {
+  height: 101%;
+  vertical-align:top;
+  margin-top: -2px;
+  border-left: 2.5pt solid;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.strikeout {
+
+  line-height: 1em;
+  position: relative;
+}
+.strikeout::after {
+  border-bottom: 2.5pt solid;
+  content: "";
+  left: 0;
+  margin-top: calc(0.125em / 2 * -1);
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+
+.menuItem p
+{
+    font-family: Suisseintl-Suisselight;
+    font-size: 9em;
+    display:block;
+    margin: 0;
+    height: 100%;
+}
+
+.menuItem {
+    border-bottom: 2.5pt solid;
+    height: 20%;
+}
+.menuItem {
+    /*margin: 0 auto;*/
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.menuItem p {
+  -webkit-transition-duration: 3s;
+  transition-duration: 3s;
+}
+
+.menuItem p {
+  -webkit-transition-duration: 3s;
+  transition-duration: 3s;
+  margin-left: 2vw;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+}
+
+.menuItem p:hover, .menuItem p:focus, .menuItem p:active {
+  -webkit-transform: translateX(-68vw);
+  transform: translateX(-68vw);
+}
+
+.menuItem p:hover {
+  -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+}
+
+.menuItem p:hover, .menuItem p:focus, .menuItem p:active {
+  -webkit-transform: translateX(-93vw);
+  transform: translateX(-93vw);
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 5vh;
+  background:white;
+  border-top: 2.5pt solid;
+
+}
+
+.content, .fc_content {
+  flex: 1 0 auto;
+  height: 98%;
+  margin-bottom: 2%;
+  overflow-x: hidden;
+}
+
+.content_main {
+    flex: 1 0 auto;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.main {
+  height: 100vh;
+}
+
+.lieux_content {
+  flex: 1 0 auto;
+  height: 98%;
+  margin-bottom: 2%;
+}
+
+.formation_content, .extraction_content, .gallery_content {
+  flex: 1 0 auto;
+  height: 100vh;
+  display: flex;
+  padding-bottom: 5vh;
+}
+
+.formation_left, .formation_mid, .formation_right,
+.extraction_left, .extraction_mid, .extraction_right {
+  float: left;
+  width: calc(100%/3);
+  min-height: 100%;
+  overflow: auto;
+  padding-left: 2px;
+}
+
+.gallery_left, .gallery_mid {
+  float: left;
+  width: calc(100%/3);
+  min-height: 100%;
+  height: 100vh;
+}
+
+.gallery_right {
+  float: left;
+  width: calc(100%/3);
+  min-height: 100%;
+  height: 100vh;
+}
+
+.formation_mid,
+.extraction_mid {
+  border-left: 2.5pt solid;
+  border-right: 2.5pt solid;
+}
+
+.extraction_left ul {
+   list-style-type: none;
+}
+
+.extraction_left li:before {
+   content: '- ';
+}
+
+
+.gallery {
+  display: flex;
+  align-items: center;
+  height: 95vh;
+  width: 100vw;
+}
+
+.gallery_element {
+  height: 49vh;
+  text-align: center;
+  background-size:contain;
+  background-repeat: no-repeat;
+  /*border-left: 2.5pt solid;
+  border-bottom: 2.5pt solid;*/
+  margin: 0;
+  flex-grow: 1;
+  background-color: white;
+}
+
+.gallery_element p {
+  text-align: center;
+  position: relative;
+  top: 45%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 34pt;
+
+}
+
+.ge_Cavansite,
+.ge_Malachite,
+.ge_Calcedoine,
+.ge_Calcite
+ {
+  border-left: 2.5pt solid;
+  border-right: 2.5pt solid;
+}
+
+.ge_Malachite,
+.ge_Tourmaline,
+.ge_Quartz,
+.ge_Silice,
+.ge_Calcedoine,
+.ge_Aragonite
+ {
+  border-bottom: 2.5pt solid;
+}
+
+.ge_Malachite,
+.ge_Tourmaline,
+.ge_Quartz {
+  border-top: 2.5pt solid;
+}
+
+.ge_Kutnohorite {
+	border-left: 0;
+}
+
+.ge_Tourmaline {
+	border-left: 0;
+}
+
+.ge_Silice {
+	border-left: 0;
+}
+
+.ge_Enhydros {
+	border-left: 0;
+}
+
+.gallery_lieux {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  height:  95%;
+}
+
+.gallery_lieux_element {
+  height: 50vh;
+  width: 49%;
+  text-align: center;
+  border-top: 2.5pt solid;
+  border-bottom: 0;
+  border-right: 0;
+  background-size: cover;
+  flex-grow: 1;
+  background-repeat: no-repeat;
+}
+
+.gallery_lieux_element p {
+  text-align: center;
+  position: relative;
+  top: 47%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 34pt;
+  opacity: 0;
+  color: black;
+  line-height: 50pt;
+}
+
+.gallery_lieux_element:hover {
+  opacity: 1;
+}
+
+.gle_Zenaga {
+  border-top:0pt;
+  background-image: url('../img/1_Zenaga.jpg');
+  background-position: center;
+}
+
+.gle_Cumberland {
+  border-top:0pt;
+  border-left: 2.5pt solid;
+  background-image: url('../img/2_Cumberland.jpg');
+  background-position: center;
+}
+
+.gle_Kerdous {
+  background-image: url('../img/3_Kerdous.jpg');
+  background-position: center;
+}
+
+.gle_Cavnic {
+  border-left: 2.5pt solid;
+  background-image: url('../img/4_Cavnic.jpg');
+  background-position: center;
+}
+
+.gle_Djebel_Saghro {
+  background-image: url('../img/5_Djebel Saghro.jpg');
+  background-position: center;
+}
+
+.gle_Cambara_do_Sul {
+  border-left: 2.5pt solid;
+  background-image: url('../img/6_Cambara_do_Sul.jpg');
+  background-position: center;
+}
+
+.gle_Massif_Central {
+  background-image: url('../img/7_Massif_Central.jpg');
+  background-position: center;
+}
+
+.gle_Tiznit {
+  border-left: 2.5pt solid;
+  background-image: url('../img/8_Tiznit.jpg');
+  background-position: center;
+}
+
+.clearfix {
+    overflow: auto;
+}
+
+.faux_composant_left, .faux_composant_right {
+  float: left;
+  width: 50%;
+  min-height: 100%;
+  overflow: auto;
+  padding-left: 2px;
+  background-repeat:no-repeat;
+  background-size: contain;
+  /*transition: background 0.5s linear;
+  webkit-transition: background 0.5s linear;*/
+  background-color: white;
+  background-position: center;
+}
+
+.mi_fc {
+  border-bottom: 0 !important;
+}
+
+.faux_composant_left {
+  border-right: 2.5pt solid;
+  background-image: url('../img/gauche.png');
+  background-position: right;
+}
+
+.faux_composant_right {
+  background-image: url('../img/droite.png');
+}
+
+.fullimg {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  position: fixed;
+  background-position: center;
+  background-color: black;
+  border: 0;
+}
+
+.fullimg p {
+  opacity: 0 !important;
+}
+
+.hidep p {
+  display: none;
+}
+
+.menu_mobile {
+  display: none;
+}
+
+.saturation {
+  filter: saturate(2);
+}
+
+.grayscale {
+  filter:grayscale(100%);
+
+}
+
+.hue-rotate{
+   filter:hue-rotate(90deg);
+}
+
+.sepia {
+  filter: sepia(100%);
+}
+
+.brightness {
+  filter:brightness(130%);
+}
+
+@media all and (max-width: 1024px)
+{
+    p, li {
+      font-size: 15pt;
+    }
+
+    .menu_pc {
+        display: none;
+    }
+
+    .fc_content {
+        background-color: black;
+    }
+
+    .menu_mobile {
+      display: inherit;
+    }
+
+    .mobile_right {
+      float: right;
+      margin-right: 2vw;
+    }
+
+    .gallery_left, .gallery_mid {
+      min-height: unset;
+      float: unset;
+      width: 100vw;
+      height: unset;
+    }
+
+    .gallery_right {
+      float: unset;
+      width: 100vw;
+      height: unset;
+      min-height: unset;
+    }
+
+    .gallery {
+      display: table;
+    }
+
+    .ge_Cavansite, .ge_Malachite, .ge_Calcedoine, .ge_Calcite {
+      border-left: 0;
+      border-right: 0;
+    }
+
+    .ge_Cavansite, .ge_Laurionite {
+      border-top: 1.5px solid black;
+    }
+
+
+    .gallery_lieux_element p {
+      opacity: 0;
+    }
+
+    .gallery_lieux_element {
+      width: 100vw;
+      border: 0;
+      border-bottom: 2.5pt solid black;
+    }
+
+    .formation_content, .extraction_content, .gallery_content {
+      display: unset;
+    }
+
+    .formation_left, .formation_mid, .formation_right, .extraction_left, .extraction_mid, .extraction_right {
+      float: unset;
+      min-height: unset;
+      width: 100vw;
+      margin-bottom: 2vh;
+    }
+
+    .formation_mid, .extraction_mid {
+      border: 0;
+    }
+
+    .faux_composant_left, .faux_composant_right {
+      width: 100vw;
+      height: 48vh;
+      min-height: unset;
+      margin: 0 auto;
+    }
+
+    .faux_composant_left {
+      border-right: 2.5pt solid;
+      background-image: url('../img/gauche-vertical.png');
+      background-position: center;
+      float: unset;
+      border: 0;
+      border-bottom: 2.5pt solid black;
+    }
+
+    .faux_composant_right {
+      background-image: url('../img/droite-vertical.png');
+      float: unset;
+    }
+  }
+
+}

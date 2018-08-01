@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  </head>
+  <body class="main">
+      <div class="content_main">
+        <div class="menuItem"><p><a href="la_formation.html">1. La formation des géodes</a></p></div>
+        <div class="menuItem"><p><a href="les_composants.html">2. Les composants <img src="img/ge_Kutnohorite.jpg" /><img src="img/ge_Cavansite.jpg" /><img src="img/ge_Laurionite.jpg" /><img src="img/ge_Tourmaline.jpg" /><img src="img/ge_Malachite.jpg" /><img src="img/ge_Quartz.jpg" /><img src="img/ge_Silice.jpg" /><img src="img/ge_Calcedoine.jpg" /><img src="img/ge_Aragonite.jpg" /><img src="img/ge_Enhydros.jpg" /><img src="img/ge_Calcite.jpg" /><img src="img/ge_Amethyste.jpg" /></a></p></div>
+        <div class="menuItem"><p><a href="l_extraction.html">3. L’extraction des géodes</a></p></div>
+        <div class="menuItem"><p><a href="les_lieux.html">4. Les lieux  <img src="img/1_Zenaga.jpg" /><img src="img/2_Cumberland.jpg" /><img src="img/3_Kerdous.jpg" /><img src="img/4_Cavnic.jpg" /><img src="img/5_Djebel Saghro.jpg" /><img src="img/6_Cambara_do_Sul.jpg" /><img src="img/7_Massif_Central.jpg" /><img src="img/8_Tiznit.jpg" /></a></p></div>
+        <div class="menuItem mi_fc"><p><a href="les_faux_composants.html">5. Les faux composants</a></p></div>
+      </div>
+  </body>
+  <script>
+  $(document).ready(function() {
+    checkScreenSize();
+
+    $(window).on("resize", function (e) {
+      checkScreenSize();
+    });
+
+    function checkScreenSize() {
+      var newWindowWidth = $(window).width();
+      if (newWindowWidth < 1024)
+        {
+          $('.menuItem').each(function() {
+            var width = $(this).find("p").find("a").width();
+            $(this).find("p").css("transform","translateX(-" + width + "px)");
+            $(this).find("p").css("transition-timing-function","linear");
+            $(this).find("p").css("transition-duration","12s");
+          });
+        }
+      else
+        {
+          $('.menuItem').each(function() {
+            var width = $(this).find("p").find("a").innerWidth() - $(this).find("p").innerWidth();
+            console.log($(this).find("p").children("a").get());
+
+            $(this).hover(function() {
+              $(this).find("p").css("transform","translateX(-" + width + "px)");
+              $(this).find("p").css("transition-timing-function","linear");
+              $(this).find("p").css("transition-duration","5s");
+            },
+            function() {
+              $(this).find("p").css("transform","translateX(0px)");
+              $(this).find("p").css("transition-timing-function","linear");
+              $(this).find("p").css("transition-duration","5s");
+            });
+          });
+        }
+    }
+
+  });
+
+  </script>
+</html>

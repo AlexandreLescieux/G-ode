@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  </head>
+  <body>
+      <div class="wrapper">
+        <div class="lieux_content">
+          <div class="gallery_lieux">
+            <div class="gallery_lieux_element gle_Zenaga"><p>Zenaga</p><p>(Ma)</p></div>
+            <div class="gallery_lieux_element gle_Cumberland"><p>Cumberland</p><p>(Uk)</p></div>
+            <div class="gallery_lieux_element gle_Kerdous"><p>Kerdous</p><p>(Ma)</p></div>
+            <div class="gallery_lieux_element gle_Cavnic"><p>Cavnic</p><p>(Ro)</p></div>
+            <div class="gallery_lieux_element gle_Djebel_Saghro"><p>Djebel Saghro</p><p>(Ma)</p></div>
+            <div class="gallery_lieux_element gle_Cambara_do_Sul"><p>Cambará do Sul</p><p>(Br)</p></div>
+            <div class="gallery_lieux_element gle_Massif_Central"><p>Massif Central</p><p>(Fr)</p></div>
+            <div class="gallery_lieux_element gle_Tiznit"><p>Tiznit</p><p>(Ma)</p></div>
+          </div>
+        </div>
+        <div class="footer">
+        <footer>
+          <div class="menu_pc"><p><a href="index.html">La géode</a>: <a href="la_formation.html">La formation</a>, <a href="les_composants.html">Les composants</a>, <a href="l_extraction.html">L'extraction</a>, <a href="index.html" class="animsition-link"><span class="strikeout">Les lieux</span></a>, <a href="les_faux_composants.html">Les faux composants</a></p></div>
+          <div class="menu_mobile"><p><a href="index.html">La géode</a>: <span class="mobile_right"><a href="la_formation.html">1</a>, <a href="les_composants.html">2</a>, <a href="l_extraction.html">3</a>, <a href="index.html"><span class="strikeout">4</span></a>, <a href="les_faux_composants.html">5</a></span></p></div>
+        </footer>
+        </div>
+      </div>
+      <script>
+      $(document).ready(function() {
+        var isMobile = checkScreenSize();
+        $(window).on("resize", function (e) {
+          isMobile = checkScreenSize();
+        });
+
+        function checkScreenSize() {
+          var newWindowWidth = $(window).width();
+          if (newWindowWidth < 1024)
+            return true;
+          else
+            return false;
+        }
+
+        $.fn.isInViewport = function() {
+          var elementTop = $(this).offset().top;
+          var elementBottom = elementTop + $(this).outerHeight();
+
+          var elemCenter = ((elementBottom - elementTop) / 2) + elementTop;
+          var viewportTop = $(window).scrollTop();
+
+
+          var viewportBottom = (viewportTop + $(window).height());
+
+          var viewportCenter = (viewportBottom - viewportTop) / 2 + viewportTop;
+
+          /*console.log("debut");
+          console.log($(this));
+          console.log("view");
+          console.log(viewportTop);
+          console.log(viewportBottom);
+          console.log(viewportCenter);
+          console.log("element");
+          console.log(elementTop);
+          console.log(elementBottom);
+          console.log(elemCenter);
+          console.log("fin");*/
+
+          return elementTop - 100 < viewportCenter && elementBottom + 100 > viewportCenter;
+        };
+
+        $(window).on('resize scroll', function() {
+        $('.gallery_lieux_element').each(function() {
+            if (isMobile)
+            {
+                var activeClass = $(this).attr('class');
+                var geClass = activeClass.match(/gle\_[A-Z]+/gi)[0];
+                if ($(this).isInViewport()) {
+                  $(this).find( "p" ).css({"opacity": "1"});
+                } else {
+                  $(this).find( "p" ).css({"opacity": "0"});
+                }
+            }
+          });
+        });
+
+        $( ".gallery_lieux_element" ).hover(
+        function() {
+          if (!isMobile)
+            $(this).find( "p" ).css({"opacity": "1"});
+        },
+        function() {
+          if (!isMobile)
+            $(this).find( "p" ).css({"opacity": "0"});
+        }
+      );
+
+      $( ".gallery_lieux_element" ).click(
+      function() {
+        if (!isMobile)
+        {
+          $(this).toggleClass("fullimg");
+          $( ".gallery_lieux_element" ).toggleClass("hidep");
+        }
+      });
+    });
+    </script>
+  </body>
+</html>

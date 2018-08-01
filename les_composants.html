@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  </head>
+  <body>
+      <div class="content">
+        <div class="gallery">
+          <div class="gallery_left">
+            <div class="gallery_element ge_Kutnohorite"><p>Kutnohorite</p></div>
+            <div class="gallery_element ge_Tourmaline"><p>Tourmaline</p></div>
+            <div class="gallery_element ge_Silice"><p>Silice</p></div>
+            <div class="gallery_element ge_Enhydros"><p>Enhydros</p></div>
+          </div>
+          <div class="gallery_mid">
+            <div class="gallery_element ge_Cavansite"><p>Cavansite</p></div>
+            <div class="gallery_element ge_Malachite"><p>Malachite</p></div>
+            <div class="gallery_element ge_Calcedoine"><p>Calcédoine</p></div>
+            <div class="gallery_element ge_Calcite"><p>Calcite</p></div>
+          </div>
+          <div class="gallery_right">
+            <div class="gallery_element ge_Laurionite"><p>Laurionite</p></div>
+            <div class="gallery_element ge_Quartz"><p>Quartz</p></div>
+            <div class="gallery_element ge_Aragonite"><p>Aragonite</p></div>
+            <div class="gallery_element ge_Amethyste"><p>Améthyste</p></div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="menu_pc"><p><a href="index.html">La géode</a>: <a href="la_formation.html">La formation</a>, <a href="index.html" class="animsition-link"><span class="strikeout">Les composants</span></a>, <a href="l_extraction.html">L'extraction</a>, <a href="les_lieux.html">Les lieux</a>, <a href="les_faux_composants.html">Les faux composants</a></p></div>
+        <div class="menu_mobile"><p><a href="index.html">La géode</a>: <span class="mobile_right"><a href="la_formation.html">1</a>, <a href="index.html"><span class="strikeout">2</span></a>, <a href="l_extraction.html">3</a>, <a href="les_lieux.html">4</a>, <a href="les_faux_composants.html">5</a></span></p></div>
+      </footer>
+      <script>
+      $(document).ready(function() {
+        // Fonction qui détecte si l'élement est dans le champs de vision
+        $.fn.isInViewport = function() {
+          var elementTop = $(this).offset().top;
+          var elementBottom = elementTop + $(this).outerHeight();
+
+          var elemCenter = ((elementBottom - elementTop) / 4) + elementTop;
+          var viewportTop = $(window).scrollTop();
+
+
+          var viewportBottom = (viewportTop + $(window).height());
+
+          var viewportCenter = (viewportBottom - viewportTop) / 2 + viewportTop;
+
+          /*console.log("debut");
+          console.log($(this));
+          console.log("view");
+          console.log("viewportTop : " + viewportTop);
+          console.log("viewportBottom : " + viewportBottom);
+          console.log("viewportCenter : " + viewportCenter);
+          console.log("element : ");
+          console.log("elementTop : " + elementTop);
+          console.log("elementBottom : " + elementBottom);
+          console.log("elemCenter : " + elemCenter);
+          console.log("fin");*/
+
+          return elementTop - 100 < viewportCenter && elementBottom + 100 > viewportCenter;
+        };
+
+        // On initialise la première image
+        $(".ge_Kutnohorite").css({"background-image": "url('img/ge_Kutnohorite.jpg')"});
+        $(".ge_Kutnohorite").css({"background-color": "black"});
+        $(".ge_Kutnohorite").css({"background-position": "center"});
+
+        var lastElem = $(".ge_Kutnohorite");
+
+        // On applique la fonction à chaque fois qu'on scroll sur tous les éléments de la galerie
+        $(".content").on('resize scroll', function() {
+        $('.gallery_element').each(function() {
+            if (isMobile)
+            {
+              var activeClass = $(this).attr('class');
+              var geClass = activeClass.match(/ge\_[A-Z]+/gi)[0];
+              if($(".content").scrollTop() == 0)
+              {
+                $(lastElem).css({"background-image": "url()"});
+                $(lastElem).css({"background-color": "white"});
+                $(lastElem).css({"background-position": "center"});
+
+                $(".ge_Kutnohorite").css({"background-image": "url('img/ge_Kutnohorite.jpg')"});
+                $(".ge_Kutnohorite").css({"background-color": "black"});
+                $(".ge_Kutnohorite").css({"background-position": "center"});
+
+                lastElem = $(".ge_Kutnohorite");
+              }
+              else if ($(this).isInViewport())
+              {
+                $(lastElem).css({"background-image": "url()"});
+                $(lastElem).css({"background-color": "white"});
+                $(lastElem).css({"background-position": "center"});
+
+                $(this).css({"background-image": "url('img/" + geClass + ".jpg')"});
+                $(this).css({"background-color": "black"});
+                $(this).css({"background-position": "center"});
+                lastElem = $(this);
+              }
+              else
+              {
+                $(this).css({"background-image": "url()"});
+                $(this).css({"background-color": "white"});
+                $(this).css({"background-position": "center"});
+              }
+            }
+            else
+            {
+                $(this).css({"background-image": "url()"});
+                $(this).css({"background-color": "white"});
+                $(this).css({"background-position": "center"});
+            }
+          });
+        });
+
+        var isMobile = checkScreenSize();
+        $(window).on("resize", function (e) {
+          isMobile = checkScreenSize();
+        });
+
+        function checkScreenSize() {
+          var newWindowWidth = $(window).width();
+          if (newWindowWidth < 1024)
+            return true;
+          else
+            return false;
+        }
+
+        function mouseOver()
+        {
+
+          $(this).addClass("gallery_element_hover");
+        }
+
+        function mouseOut()
+        {
+          $(this).removeClass("gallery_element_hover");
+        }
+
+        $( ".gallery_element" ).hover(mouseOver, mouseOut);
+        $( ".gallery_element" ).mouseover(mouseOver).mouseout(mouseOut);
+
+        //var addOrRemove = true;
+
+        $(".gallery_element").hover(
+          function() {
+            if (!isMobile) {
+              var classes = $(this).attr('class');
+              var geClass = classes.match(/ge\_[A-Z]+/gi)[0];
+                $(this).css({"background-image": "url('img/" + geClass + ".jpg')"});
+                $(this).css({"background-color": "black"});
+                $(this).css({"background-position": "center"});
+            }
+          },
+          function() {
+              if (!isMobile) {
+                $(this).css({"background-image": "url('')"});
+                $(this).css({"background-color": "white"});
+            }
+          }
+        );
+
+        $( ".gallery_element" ).click(
+        function() {
+          if (!isMobile)
+          {
+            $(this).toggleClass("fullimg");
+            $( ".gallery_element" ).toggleClass("hidep");
+          }
+        });
+    });
+    </script>
+  </body>
+</html>
